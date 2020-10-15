@@ -3,4 +3,4 @@ from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    render(request,'Instaclone/index.html')
+    return render(request,'Instaclone/index.html')
