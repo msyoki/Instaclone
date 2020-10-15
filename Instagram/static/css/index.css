@@ -1,4 +1,4 @@
-
+/* universal */
 ul{
     list-style: none;
 }
@@ -6,8 +6,11 @@ ul{
 span{
     color: #433e3f;
 }
+/*end*/
 
 
+
+/* login btn store  */
 .btn-store {
     min-width: 254px;
     padding: 12px 20px !important;
@@ -31,3 +34,55 @@ span{
   .btn-store .btn-caption {
     font-size: 24px;
   }
+/*endbtn*/
+
+
+
+/* home page image display card  */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+  }
+
+  .card-body{
+      padding: 20px;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  img {
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }
+/*endcard*/
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

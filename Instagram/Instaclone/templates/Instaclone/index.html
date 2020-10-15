@@ -1,6 +1,29 @@
 {% extends 'Instaclone/base.html' %}
 {% block content %} 
 {{block.super}}
-<h1>Test template</h1>
-<h2>Test 2</h2>
+<div class="container" >
+    <div class="row container-fluid">
+        <div class="col-sm-7">
+            <div class="card" >
+                <img src="https://images.pexels.com/photos/3289167/pexels-photo-3289167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"  class="img-responsive" alt="#" style="width:100%" >
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <hr>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5" >
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-block" value="Login">
+                <input type="submit" class="btn btn-primary btn-block" value="Login">
+                <input type="submit" class="btn btn-primary btn-block" value="Login">
+                <input type="submit" class="btn btn-primary btn-block" value="Login">  
+            </div>
+        </div>
+    </div>
+</div>
 {%endblock%}
