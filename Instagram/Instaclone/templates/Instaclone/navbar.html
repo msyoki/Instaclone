@@ -1,50 +1,70 @@
 {% load bootstrap3 %}
 
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Instagram 2.0</a>
-      </div>
-      
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><span> Instagram 2.0</span></a> 
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+     
+        <!-- Adding a search form  -->
+      <div class="nav navbar-form navbar-right">
+        <form class="navbar-form" role="search" action="#">
 
-
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Link</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-right">
-          <div class="form-group">
-            <input class="form-control" type="text" autocapitalize="none" placeholder="Search" value="">
+          <div class="input-group">
+            <input input type="text" class="form-control" placeholder="Search Categories" name="category">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
           </div>
         </form>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
 
+      </div>
+      <div class="navbar navbar-brand navbar-right " >
+        
+        {% if user.is_authenticated %}
+        <ul >
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                      <span class="caret"></span>
+                  </a>
+            
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="/accounts/password/change">Change Password</a>
+              </li>
+              <li>
+                <a href="/logout">Logout</a>
+              </li>
+            </ul>
+          </li>
+          
+            {% else %}
+          <li >
+            <a class='btn btn-default' href="/accounts/login">Login</a>
+            <a class='btn btn-default float-right' href="/accounts/register">Signup</a>
+          </li>
+          {% endif %}
+          
+        </ul>
 
+      </div>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 
+</nav>
 
 
 
