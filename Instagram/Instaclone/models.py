@@ -12,6 +12,8 @@ class Image(models.Model):
 
 class Profile(models.Model):
     profile_pic = models.ImageField(upload_to= 'profile_pic/', null= True, blank= True)
+    first_name = models.CharField(max_length =30,blank=True)
+    last_name = models.CharField(max_length =30,blank=True)
     bio = models.TextField(max_length = 50, blank= True)
 
 
