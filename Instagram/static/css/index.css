@@ -1,3 +1,9 @@
-.navbar-brand{
+
+ul{
+    list-style: none;
+}
+
+span{
     font-family: 'Lobster', cursive;
+    font-size: x-large;
 }
