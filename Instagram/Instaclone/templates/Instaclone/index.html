@@ -2,32 +2,41 @@
 {% block content %} 
 {{block.super}}
 <div class="container" >
-    <div class="row container-fluid">
+    <div class="row ">
         <div class="col-sm-7">
-            <div class="card" >
-                <img src="https://images.pexels.com/photos/3289167/pexels-photo-3289167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"  class="img-responsive" alt="#" style="width:100%" >
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <hr>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+            <div class="container-fluid">
+                {% for image in images %}
+                <div class="card" >
+                    <img src="{{image.image.url}}"  class="img-responsive" alt="#" style="width:100%" >
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">"<i>{{image.image_name}}</i>"</h5>
+                        <p class="card-text"><a href=""><strong style="color: black;">{{image.user}}</strong></a> {{image.image_caption}}</p>
+                        <p class="card-text"><a href=""><strong style="color: black;">{{comment.user.username}}</strong></a> {{image.comment}}</p>
+                        <small class="card-text text-muted">Posted : {{image.post_on}}</small>
+                        <hr>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
+        
         <div class="col-sm-5" >
-            <div class="card text-center" style="padding: 20px;">
-                <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-                <div class="card-footer text-muted">
-                  2 days ago
+            <div class="container-fluid">
+                <div class="card text-center" style="padding: 20px;">
+                    <div class="card-header">
+                    Featured
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                    2 days ago
+                    </div>
                 </div>
             </div>
         </div>
