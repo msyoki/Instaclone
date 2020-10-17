@@ -3,7 +3,7 @@
 {{block.super}}
 <div class="container" >
     <div class="row ">
-        <div class="col-sm-7">
+        <div class="col-sm-8">
             <div class="container-fluid">
                 {% for image in images %}
                 <div class="card" >
@@ -12,7 +12,9 @@
                     <div class="card-body">
                         <h5 class="card-title">"<i>{{image.image_name}}</i>"</h5>
                         <p class="card-text"><a href=""><strong style="color: black;">{{image.user}}</strong></a> {{image.image_caption}}</p>
-                        <p class="card-text"><a href=""><strong style="color: black;">{{comment.user.username}}</strong></a> {{image.comment}}</p>
+                        {% for image_comment  in image_comments %}
+                        <p class="card-text"><a href=""><strong style="color: black;">{{image_comment.comment}}</strong></a></p>
+                        {% endfor %}
                         <small class="card-text text-muted">Posted : {{image.post_on}}</small>
                         <hr>
                         <a href="#" class="card-link">Card link</a>
@@ -23,19 +25,26 @@
             </div>
         </div>
         
-        <div class="col-sm-5" >
+        <div class="col-sm-4" >
             <div class="container-fluid">
                 <div class="card text-center" style="padding: 20px;">
-                    <div class="card-header">
-                    Featured
-                    </div>
+                    <div class="card-header" >
+                        <h4 style="font-weight: bold;">Welcome to Instagram 2.0</h4>
+                        <h5 class="card-title text-center text-muted" style="font-weight: bold;">Registered Profiles</h5>
+                    </div><hr>
                     <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                   
+                    {% for profile in profiles %}
+                        <div>
+                            <img class="card-text" src="{{profile.profile_pic.url}}" alt="Avatar" style="border-radius: 50%;" width="50px" height="50px">
+                            <small style="font-weight: bold;" >{{ profile.user}}</small>
+                        </div><br>
+                    {% endfor %}
+                    <hr><br>
+                    <a href="{% url 'new-image' %}" class="btn btn-primary">Upload Image</a>
                     </div>
                     <div class="card-footer text-muted">
-                    2 days ago
+                    Instagram 2.0
                     </div>
                 </div>
             </div>
