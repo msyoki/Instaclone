@@ -1,22 +1,8 @@
-{% load bootstrap3 %} {% load staticfiles %}
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Activate Profile</title>
+{% extends 'Instaclone/base.html' %}
+{% load bootstrap3 %}
+{% block content %}
   {{form.media}}
-
-{% block styles %} {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/index.css' %}"> {% endblock %}
-
-</head>
-
-<body>
-
-    <div class="container">
+    <div class="container" style="width: 600px;">
 
         <form  action="{% url 'new-profile'%}" method="post" enctype="multipart/form-data">
             {%csrf_token%}
@@ -25,10 +11,4 @@
             <input type="submit" class="btn btn-success" value="Activate">
         </form>
     </div>
-   {% block scripts %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  {% bootstrap_javascript %} {% endblock %}
-
-</body>
-
-</html>
+{% endblock %}

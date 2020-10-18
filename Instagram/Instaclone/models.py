@@ -10,7 +10,6 @@ class Image(models.Model):
     username=models.ForeignKey(User,on_delete=models.CASCADE)
     post_on = models.DateTimeField(auto_now_add= True,null=True)
 
-
     def __str__(self):
         return self.username
 
