@@ -17,7 +17,7 @@
      
         <!-- Adding a search form  -->
       <div class="nav navbar-form navbar-right">
-        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+        <form class="navbar-form" role="search" action="#">
 
           <div class="input-group">
             <input input type="text" class="form-control" placeholder="Search user" name="profiles">
@@ -40,6 +40,9 @@
               </li>
               <li>
                 <a href="/accounts/password/change">Change Password</a>
+              </li>
+              <li>
+                <a href="{% url 'new-profile' %}">Activate Profile</a>
               </li>
               <li>
                 <a href="/logout">Logout</a>

@@ -10,18 +10,17 @@
                     <img src="{{image.image.url}}"  class="img-responsive" alt="#" style="width:100%" >
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title">"<i>{{image.image_name}}</i>"</h5>
-                        <p class="card-text"><a href=""><strong style="color: black;">{{image.user}}</strong></a> {{image.image_caption}}</p>
-                        {% for image_comment  in image_comments %}
-                        <p class="card-text"><a href=""><strong style="color: black;">{{image_comment.comment}}</strong></a></p>
-                        {% endfor %}
+                        <h5 class="card-title">"<i>{{image.name}}</i>"</h5>
+                        <p class="card-text"><a href=""><strong style="color: black;">{{image.profile}}</strong></a> {{image.caption}}</p>
+                        
+                        <p class="card-text"><a href=""><strong style="color: black;"></strong></a></p>
+                 
                         <hr>
                         <small class="card-text text-muted">Posted : {{image.post_on}}</small>
                     </div>
                 </div>
                 <hr>
                 {% endfor %}
-         
             </div>
         </div>
         
@@ -30,21 +29,24 @@
                 <div class="card text-center" style="padding: 20px;">
                     <div class="card-header" >
                         <h4 style="font-weight: bold;">Welcome to Instagram 2.0</h4>
-                        <h5 class="card-title text-center text-muted" style="font-weight: bold;">Registered Profiles</h5>
+                        <h5 class="card-title text-center text-muted" style="font-weight: bold;">Activated Profiles</h5>
                     </div><hr>
+                    
                     <div class="card-body">
-                   
-                    {% for profile in profiles %}
-                        <div>
-                            <img class="card-text" src="{{profile.profile_pic.url}}" alt="Avatar" style="border-radius: 50%;" width="50px" height="50px">
-                            <small style="font-weight: bold;" >{{ profile.user}}</small>
-                        </div><br>
-                    {% endfor %}
-                    <hr><br>
-                    <a href="{% url 'new-image' %}" class="btn btn-primary">Upload Image</a>
+                        {% for profile in profiles %}
+                            <div>
+                                <img class="card-text" src="{{profile.profile_pic.url}}" alt="Avatar" style="border-radius: 55%;" width="55px" height="50px">
+                                <small style="font-weight: bold;" >{{ profile.name}}{{profile.user}}</small>
+                            </div><br>
+                        {% endfor %}
+                        <small class="text-muted" >Activate profile</small> <br>
+                        <small class="text-muted" >Select "Activate Profile" Account menu</small>
+                        <hr><br>
+                        
+                        <a href="{% url 'new-image' %}" class="btn btn-primary">Upload Image</a>
                     </div>
                     <div class="card-footer text-muted">
-                    Instagram 2.0
+                        Instagram 2.0
                     </div>
                 </div>
             </div>
