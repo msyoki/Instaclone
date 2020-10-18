@@ -1,27 +1,34 @@
 {%extends 'Instaclone/base.html'%} 
 {% block content %}
-<div class="container">
 
-  <div class="row">
-    {% if articles %}
-      <h2>Found {{ profiles|length }} of searched term {{message}}</h2>
+<div class="container-fluid">
+  <div class="row text-center">
+    {% if users %}
+    <h2>{{users|length}} users with search term "{{message}}"</h2>
     {% else %}
-      <h2> Found 0 Profiles for the search term {{message}}</h2>
+    <h2> Found 0 users with search term "{{message}}"</h2>
     {% endif %}
-
   </div>
 
-  <div class="row">
-
-  {% if profiles %}
-    {% for profile in profiles %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{ profile.user}}</h1>
-          <h1></h1>
+  {% if users %}
+  <div class="text-center">
+    <div class="panel-body">
+      {% for user in users%}
+      <div class="users-image">
+        <img class="card-text" src="{{user.profile_pic.url}}" alt="Avatar" style="border-radius: 50%;" width="200px" height="200px"> 
+        <h3 style="font-weight: bold;" >Username: {{user.username}}</h3>
+        <h5 class="text-muted">Name: {{user.name}}</h5 >
+        <h5 class="text-muted" >Email: {{user.email}}</h5 >
+        <h5 class="text-muted" >Bio: {{user.bio}}</h5 >
+        <hr>
       </div>
-    
-    {% endfor %}
-  {% endif %}
+
+      {% endfor %}
+
+    </div>
+    </div>
   </div>
+  {%endif %}   
 </div>
-{% endblock %}
+
+{% endblock %} 

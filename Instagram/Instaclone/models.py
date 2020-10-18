@@ -27,11 +27,8 @@ class Profile(models.Model):
 
     @classmethod
     def search_profile(cls,search_term):
-        profiles = cls.objects.filter(Q(username__username=search_term) | Q(name__icontains=search_term))
-
+        profiles = cls.objects.filter(username__username=search_term)
         return profiles
-
-
 
 class Comment(models.Model):
     username = models.ForeignKey(User,on_delete = models.CASCADE)

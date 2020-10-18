@@ -49,8 +49,11 @@ def search_results(request):
         searched_users = Profile.search_profile(search_term)
         message=f"{search_term}"
 
-        return render(request,'search.html',{"message":message,"users":searched_users})
+        return render(request,'Instaclone/search.html',{"message":message,"users":searched_users})
 
     else:
         message="You haven't searched for any term"
-        return render(request,'search.html',{"message":message})
+        return render(request,'Instaclone/search.html',{"message":message})
+
+
+
