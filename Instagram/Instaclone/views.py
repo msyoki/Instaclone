@@ -56,4 +56,15 @@ def search_results(request):
         return render(request,'Instaclone/search.html',{"message":message})
 
 
+@login_required(login_url='/accounts/login/')
+def profile(request,profile_id):
+    current_user=request.user
 
+    try:
+        all_images=Image.objects.all()
+        profile = Profile.objects.get(id=profile_id)
+        username = profile.username
+        images = Image.objects.filter(username=username)
+    except:
+        raise ObjectDoesNotExist()
+    return render(request,"Instaclone/profile.html",{"profile":profile,"images":images})
