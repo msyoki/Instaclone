@@ -29,18 +29,20 @@
                 <div class="card text-center" style="padding: 20px;">
                     <div class="card-header" >
                         <h4 style="font-weight: bold;">Welcome to Instagram 2.0</h4>
-                        <h5 class="card-title text-center text-muted" style="font-weight: bold;">Activated Profiles</h5>
+                        <h4 class="card-title text-center text-muted" style="font-weight: bold;">Users</h4>
                     </div><hr>
                     
                     <div class="card-body">
+                        <h5 class="text-muted text-center" >Active</h5>
                         {% for profile in profiles %}
                             <div>
-                                <img class="card-text" src="{{profile.profile_pic.url}}" alt="Avatar" style="border-radius: 55%;" width="55px" height="50px">
+                                
+                                <img class="card-text" src="{{profile.profile_pic.url}}" alt="Avatar" style="border-radius: 55%;" width="55px" height="50px"> 
                                 <small style="font-weight: bold;" >{{ profile.name}}{{profile.user}}</small>
-                            </div><br>
+                            </div><hr>
                         {% endfor %}
-                        <small class="text-muted" >Activate profile</small> <br>
-                        <small class="text-muted" >Select "Activate Profile" Account menu</small>
+                        <small class="text-muted" >NB: To activate profile</small> <br>
+                        <small class="text-muted" >Navbar-Account-Activate Profile </small>
                         <hr><br>
                         
                         <a href="{% url 'new-image' %}" class="btn btn-primary">Upload Image</a>
