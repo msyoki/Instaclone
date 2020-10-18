@@ -15,13 +15,13 @@
                         {% for image_comment  in image_comments %}
                         <p class="card-text"><a href=""><strong style="color: black;">{{image_comment.comment}}</strong></a></p>
                         {% endfor %}
-                        <small class="card-text text-muted">Posted : {{image.post_on}}</small>
                         <hr>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <small class="card-text text-muted">Posted : {{image.post_on}}</small>
                     </div>
                 </div>
+                <hr>
                 {% endfor %}
+         
             </div>
         </div>
         
