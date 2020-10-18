@@ -6,7 +6,9 @@ from . import views
 urlpatterns = [
     url(r'^$',views.home,name='home'),
     url(r'^new/image$', views.new_image, name='new-image'),
+    url(r'^profile/add$', views.new_profile, name='new-profile'),
     url(r'^new/post$',views.home, name='newpost'),
+    
     
 ]
 if settings.DEBUG:
