@@ -1,6 +1,6 @@
 {% extends 'Instaclone/base.html' %}
 {% block content %} 
-<div class="container">
+<div class="container-fluid">
     <div class="row " >
         <div class="col-sm-4">
             <img src="{{profile.profile_pic.url}}"  alt="Avatar" style="border-radius: 50%;" width="200px" height="200px">
@@ -11,19 +11,16 @@
             <h4 class="text-muted">Email: {{profile.email}}</h4>
             <h4 class="text-muted">Bio: {{profile.bio}}</h4>
         </div>
-        <!-- <img src="{{profile.profile_pic.url}}"  alt="Avatar" style="border-radius: 50%;" width="200px" height="200px">     
-        
-        Name: {{profile.name}}
-        Email: {{profile.email}} -->
     </div><hr>
     <h3>All uploads</h3><br>
-    <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" >
-            {% for image in images %}
-            <img src="{{image.image.url}}"  alt="{{image.name}}" style="width:100%"> 
-            <hr>
-            {% endfor %}
+    
+    {% for image in images %}
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" >  
+            <div class="card" >
+            <img src="{{image.image.url}}"  class="img-responsive" alt="#"  > 
+            </div>
         </div>
-    </div>
+    {% endfor %}
+  
 </div>
 {% endblock %} 

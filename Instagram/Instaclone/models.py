@@ -6,7 +6,7 @@ class Image(models.Model):
     image=models.ImageField(upload_to='photos')
     name=models.CharField(max_length=150)
     caption=models.CharField(max_length=200)
-    like=models.IntegerField(default=0)
+    likes=models.ManyToManyField(User,related_name='image_post')
     username=models.ForeignKey(User,on_delete=models.CASCADE)
     post_on = models.DateTimeField(auto_now_add= True)
 

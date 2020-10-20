@@ -1,6 +1,8 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from .models import Image,Profile,Comment
+from django.urls import reverse_lazy,reverse
 from .forms import ImagePostForm,ProfileForm,CommentForm
 
 

@@ -9,27 +9,28 @@
                 <div class="card" >
                     <img src="{{image.image.url}}"  class="img-responsive" alt="#" style="width:100%" >
                     <div class="card-body">
-                        <h5 class="card-title" style="font-weight: bold;">{{image.like}} likes</h5>
+                        <div class="card-title" style="font-weight: bold;">likes
+                        </div>
                         <h5 class="card-title">{{image.name}}</h5>
                         <p class="card-text"><strong>{{image.username}}</strong></a> {{image.caption}}</p>
                         <small class="text-muted">Comments...</small>
                         {% if not image.comments.all %}
                         <br>
-                        <small class="text-muted">No comments yet <a href="{% url 'new-comment' %}">Add comment</a>
+                        <a class="text-muted">No comments yet <a href="{% url 'new-comment' %}">Add comment</a>
                         {% else %}
                             {% for comment in image.comments.all %}
                             <h5 ><strong> {{ comment.username }}</strong> 
                                 {{ comment.body}}
                                 <br>
-                                <small>  
+                                <h6>  
                                     {{ comment.post_on }}
-                                </small>
+                                </h6>
                             </h5>
-                            <small><a href="{% url 'new-comment' %}">Add a comment</a></small>
                             {% endfor %} 
+                            <h6><a href="{% url 'new-comment' %}">Add a comment</a></h6>
                         {% endif %}
                         <hr>
-                        <small class="card-text text-muted">Posted : {{image.post_on}}</small>
+                        <h6 class="card-text text-muted">Posted : {{image.post_on}}</h6>
                     </div>
                 </div>
                 <hr>
