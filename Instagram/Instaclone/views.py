@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .models import Image,Profile
-from .forms import ImagePostForm,ProfileForm
+from .models import Image,Profile,Comment
+from .forms import ImagePostForm,ProfileForm,CommentForm
 
 
 # Create your views here.
@@ -13,12 +13,10 @@ def home(request):
 
 @login_required(login_url='/accounts/login/')
 def new_image(request):
-    current_user = request.user
     if request.method == 'POST':
         form = ImagePostForm(request.POST, request.FILES)
         if form.is_valid():
-            image = form.save(commit=False)
-            image.user = current_user
+            image = form.save()
             image.save()
         return redirect('/')
 
@@ -28,12 +26,10 @@ def new_image(request):
 
 @login_required(login_url='/accounts/login/')
 def new_profile(request):
-    current_user = request.user
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = current_user
+            profile = form.save()
             profile.save()
         return redirect('/')
 
@@ -68,3 +64,18 @@ def profile(request,profile_id):
     except:
         raise ObjectDoesNotExist()
     return render(request,"Instaclone/profile.html",{"profile":profile,"images":images})
+
+
+
+@login_required(login_url='/accounts/login/')
+ # if this is a POST request we need to process the form data
+def new_comment(request):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save()
+            comment.save()
+        return redirect('/')
+    else:
+        form = CommentForm()
+    return render(request, 'Instaclone/new_comment.html', {"form": form})
