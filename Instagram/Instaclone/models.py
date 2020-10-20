@@ -10,6 +10,18 @@ class Image(models.Model):
     username=models.ForeignKey(User,on_delete=models.CASCADE)
     post_on = models.DateTimeField(auto_now_add= True)
 
+    def save_image(self):
+        self.save()
+
+    @classmethod
+    def save_image(cls):
+        image=cls.objects.filter()
+        return image
+
+    def delete_image():
+        self.delete()
+
+
     def __str__(self):
         return self.name
 
@@ -21,13 +33,24 @@ class Profile(models.Model):
     email= models.EmailField(null=True)
     bio = models.TextField(max_length = 50, blank= True)
         
-    def __str__(self):
-        return self.name
+    def save_profile(self):
+        self.save()
+
+    def update_profile(self):
+        self.update()
+    
+    def delete_profile():
+        self.delete()
+
 
     @classmethod
     def search_profile(cls,search_term):
         profiles = cls.objects.filter(username__username=search_term)
         return profiles
+
+    def __str__(self):
+        return self.name
+
 
 class Comment(models.Model):
     image = models.ForeignKey(Image,related_name='comments',on_delete = models.CASCADE)
