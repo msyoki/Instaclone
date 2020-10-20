@@ -8,14 +8,26 @@
                 {% for image in images %}
                 <div class="card" >
                     <img src="{{image.image.url}}"  class="img-responsive" alt="#" style="width:100%" >
-                    </a>
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight: bold;">{{image.like}} likes</h5>
                         <h5 class="card-title">{{image.name}}</h5>
-                        <p class="card-text"><a href=""><strong style="color: black;">{{image.username}}</strong></a> {{image.caption}}</p>
-                        
-                        <p class="card-text"><a href=""><strong style="color: black;"></strong></a></p>
-                        
+                        <p class="card-text"><strong>{{image.username}}</strong></a> {{image.caption}}</p>
+                        <small class="text-muted">Comments...</small>
+                        {% if not image.comments.all %}
+                        <br>
+                        <small class="text-muted">No comments yet <a href="{% url 'new-comment' %}">Add comment</a>
+                        {% else %}
+                            {% for comment in image.comments.all %}
+                            <h5 ><strong> {{ comment.username }}</strong> 
+                                {{ comment.body}}
+                                <br>
+                                <small>  
+                                    {{ comment.post_on }}
+                                </small>
+                            </h5>
+                            <small><a href="{% url 'new-comment' %}">Add a comment</a></small>
+                            {% endfor %} 
+                        {% endif %}
                         <hr>
                         <small class="card-text text-muted">Posted : {{image.post_on}}</small>
                     </div>
@@ -24,7 +36,6 @@
                 {% endfor %}
             </div>
         </div>
-        
         <div class="col-sm-4" >
             <div class="container-fluid">
                 <div class="card text-center" style="padding: 20px;">
@@ -33,19 +44,16 @@
                         <h4 class= "text-center text-muted" >Active Users</h4>
                         <hr>
                     </div>
-                    
                     <div class="card-body">
-                        
                         {% for profile in profiles %}
                             <div>
-                                <img class="card-text" src="{{profile.profile_pic.url}}" alt="Avatar" style="border-radius: 55%;" width="40px" height="40px"> 
-                                <h5 style="font-weight: bold;" >{{ profile.username}}</h5>
+                                <img class="card-text" src="{{profile.profile_pic.url}}" alt="Avatar" style="border-radius: 55%;" width="60px" height="60px"> 
+                                <h5 class="text-muted" >username : <strong>{{ profile.username}}</strong> </h5>
                             </div><hr>
                         {% endfor %}
                         <small class="text-muted" >NB: To activate profile</small> <br>
                         <small class="text-muted" >Navbar-Account-Activate Profile </small>
                         <hr><br>
-                        
                         <a href="{% url 'new-image' %}" class="btn btn-primary">Upload Image</a>
                     </div>
                     <div class="card-footer text-muted">

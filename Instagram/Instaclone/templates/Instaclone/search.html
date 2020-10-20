@@ -16,7 +16,7 @@
       {% for user in users%}
       <div>
         <img src="{{user.profile_pic.url}}" alt="Avatar" style="border-radius: 50%;" width="200px" height="200px"> 
-        <h3 style="font-weight: bold;" ><a href="/user-profile/{{user.id}}">User: {{user.username}}</a></h3>
+        <h3 style="font-weight: bold;" ><a href="/user-profile/{{user.id}}" style="color: black;">User: {{user.username}}</a></h3>
         <h5 class="text-muted">Name: {{user.name}}</h5 >
         <h5 class="text-muted" >Email: {{user.email}}</h5 >
         <h5 class="text-muted" >Bio: {{user.bio}}</h5 >
