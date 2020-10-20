@@ -7,7 +7,7 @@ Developer: Musyoki Mutua
 The web-app allows a user to create a profile,post images on the timeline,view posted images on the timeline,comment and like on posts and also search for a user via the search bar and view their profile.
 
 ## Setup/Installation Requirements
-* Live site can be accessed from the following link 
+* Live site can be accessed from the following link https://instamsyoki.herokuapp.com/
 
 
 ### Behaviour Driven Development
