@@ -6,17 +6,13 @@ class Image(models.Model):
     image=models.ImageField(upload_to='photos')
     name=models.CharField(max_length=150)
     caption=models.CharField(max_length=200)
-    likes=models.ManyToManyField(User,related_name='image_post')
+    likes=models.IntegerField(default=0)
     username=models.ForeignKey(User,on_delete=models.CASCADE)
     post_on = models.DateTimeField(auto_now_add= True)
 
     def save_image(self):
         self.save()
 
-    @classmethod
-    def save_image(cls):
-        image=cls.objects.filter()
-        return image
 
     def delete_image():
         self.delete()
